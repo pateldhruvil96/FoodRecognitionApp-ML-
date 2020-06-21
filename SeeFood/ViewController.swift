@@ -33,12 +33,13 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
             }
             detect(image: ciImage)
             
+            
         }
     
         imagePicker.dismiss(animated: true, completion: nil)
     }
     
-    func detect(image:CIImage) //this will process our CIImage for interpretation
+    func detect(image:CIImage) //this will process our CIImage for interpretation but before executing this it will execute "handler"
     {
         guard let model = try? VNCoreMLModel(for: Inceptionv3().model) else{
             fatalError("Loading coreML model failed")
